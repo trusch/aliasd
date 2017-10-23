@@ -1,3 +1,17 @@
+/**
+ * JS class to interact with aliasd
+ * ================================
+ *
+ * Methods:
+ * ========
+ *
+ * get(scope, id)      => returns the alias
+ * getAll(scope)       => returns mapping from id to alias for a given scope
+ * create(scope, id)   => create a new, random alias
+ * set(scope, id, val) => set a alias
+ * del(scope, id)      => delete a alias
+ */
+
 class AliasAPI {
   constructor(endpoint){
     this.endpoint = endpoint;
