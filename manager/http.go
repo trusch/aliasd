@@ -1,5 +1,10 @@
 package manager
 
+/**
+ * This file contains the HTTP handlers which maps from HTTP
+ * to the public member functions of the manager
+ */
+
 import (
 	"encoding/json"
 	"io/ioutil"

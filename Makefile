@@ -1,4 +1,6 @@
-SRC=$(shell find ./generator ./manager ./storage -type f -name "*.go")
+SRC=$(shell find ./generator ./manager ./storage -type f -name "*.go") main.go
+
+all: docker
 
 aliasd: $(SRC) vendor
 	docker run \
@@ -19,6 +21,9 @@ vendor: glide.yaml
 		-e GOOS=linux \
 		golang:1.9 bash -c \
 			"(curl https://glide.sh/get | sh) && glide --home /tmp update"
+
+docker: aliasd Dockerfile
+	docker build -t trusch/aliasd .
 
 clean:
 	rm -rf aliasd vendor
